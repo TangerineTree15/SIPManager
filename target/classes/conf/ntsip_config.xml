@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <NTSIP 
+        proxy_name="FET SIP Server" 
+        address="10.77.17.52"
+        port="5060"
+        transport="udp"
+        domain_name="naturaltel.com"
+        path_name="gov.nist" />
+    
+    <NTSIPSTACK_PROPERTIES>/home/apuser/lrf/conf/sipStack.properties</NTSIPSTACK_PROPERTIES>
+    
+    <LOG4J_PROPERTIES>/home/apuser/lrf/conf/log4j.properties</LOG4J_PROPERTIES>
+    
+    <DATABASE_PROPERTIES
+	    driver_class="com.mysql.jdbc.Driver"
+	    user_id="apuser"
+	    user_password="Naturaltel123!"
+	    connection_url="jdbc:mysql://10.77.20.18:3306/volte_emergency?userUnicode=true"  />
+        
+    <CELL_ID_INFO 
+      cell_msg_header_1="P-Last-Cell-ID"
+      cell_msg_header_2="P-Last-Access-Network-Info"
+      cell_msg_header_3="P-Cellular-Network-Info"
+      cell_msg_header_4="P-Access-Network-Info"
+      cell_id_attr_2G="cgi-3gpp"
+      cell_id_attr_utran="utran-cell-id-3gpp"
+      access_type_4G="3GPP-E-UTRAN-FDD"
+      access_type_3G="3GPP-UTRAN-FDD"
+      access_type_2G="3GPP-GERAN"
+    />
+    
+    <PSAP_INFO
+      operator_code_4g_fet="01"
+      operator_code_3g_fet="03"
+      operator_code_taiwan="466"
+      add_prefix_countrycode="Y"
+      country_code_taiwan="+886"
+      default_4g_psap="%B2001100532"
+      default_4g_112_psap="%B302100532"
+      default_3g_psap="%B200323088"
+      default_3g_112_psap="%B30223088"
+    />
+   
+
+    <!-- for android 12810(for 112)  
+    <SOS_URI code="112" urn_format="N" treatAs="112">12810;phone-context=ims.mnc001.mcc466.3gppnetwork.org</SOS_URI>
+    -->
+
+    <!--   for real 112 -->
+    <SOS_URI code="112" urn_format="N" treatAs="112">112</SOS_URI>
+    <!-- -->
+
+
+ 
+    <!--   for real 112  
+    <SOS_URI code="112" urn_format="Y" treatAs="112">urn:service:sos</SOS_URI>
+     -->
+    
+    <!-- for iphone 12810(for 112)  
+    <SOS_URI code="112" urn_format="N" treatAs="112">12810</SOS_URI>
+     -->
+
+    <EMERGENCY_CODES country_code_prefix="" >
+        <EMERGENCY_CODE>110</EMERGENCY_CODE>
+        <EMERGENCY_CODE>119</EMERGENCY_CODE>
+        <EMERGENCY_CODE>12810</EMERGENCY_CODE>
+    </EMERGENCY_CODES>
+
+
+    <UDP_SERVER_INFO address="10.77.20.18" port="8617">
+        <COMMANDS>
+            <ACK>ack</ACK>
+            <PING>ping</PING>
+            <RELOAD_CITY_CELL>reloadCityCell</RELOAD_CITY_CELL>
+            <RELOAD_CONFIG>reloadConfig</RELOAD_CONFIG>
+        </COMMANDS>
+    </UDP_SERVER_INFO>
+
+</Configuration>
